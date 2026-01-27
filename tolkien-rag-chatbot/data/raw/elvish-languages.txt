@@ -1,0 +1,79 @@
+Title: Elvish Languages
+Source: https://lotr.fandom.com/wiki/Elvish_languages
+
+Elvish languages
+I should have preferred to write [The Lord of the Rings] in 'Elvish'. But, of course, such a work has been edited and only as much 'language' has been left in as I thought would be stomached by readers. I now find that many readers would have liked to see more."
+—Tolkien in a 1955 letter to his publisher after the release of The Lord of the Rings
+Elvish was a term used to refer to the languages spoken by Elves in Middle-earth in J.R.R. Tolkien's legendarium, of which Quenya and Sindarin are the most common, well-known, and complete, but there were many variations and dialects surrounding them.
+
+Conceptual history
+Oromëan was the Elvish linguistic phylum in an early conception of Middle-earth as seen in The Lhammas. In this conception, Oromëan and the languages of the Elves was contrasted with Aulëan, the phylum of the Dwarves. Thus, languages such as Quenya and Sindarin are said to be derived from the speech of Oromë, the Valar and huntsman who first encountered the Elves after the Awakening at Cuiviénen.
+
+Elvish languages of Middle-earth
+The languages originated as follows:
+
+Primitive Quendian (language of the Elves in Cuiviénen)
+Avarin
+Various Avarin languages (some later merged with Nandorin)
+Common Eldarin (the early language of all Eldar)
+Quenya (the language of the Ñoldor and Vanyar)
+Vanyarin Quenya (also Quendya - the common tongue of the Vanyar, closest to archaic Quenya)
+Ñoldorin Quenya
+Etya-noldorin (the language of the exiled Noldor in Middle-earth)
+Gondoliðren (dialect of Gondolin)
+Common Telerin (the early language of all the Lindar)
+Telerin (the language of the Teleri who reached the Undying Lands)
+Nandorin (languages of the Nandor — some were influenced by Avarin)
+Silvan Elvish (the language of Greenwood the Great and Lórinand)
+Sindarin (language of the Sindar)
+Doriathren (dialect of Doriath)
+Falathren (dialect of the Falas and Nargothrond)
+Mithrimin (dialects of Dorthonion and Hithlum)
+There were also the Tengwar and Cirth scripts, associated with Quenya and Sindarin respectively.
+
+Pronunciation
+Sindarin and Quenya have in most aspects very much the same pronunciation. The following table gives pronunciation for each letter or cluster in international phonetic script and examples:
+
+Vowels
+
+Letter / Digraph	Pronunciation	IPA	Further comment
+a	as fathom, or cat	[ɑ]	/
+á	as in father	[ɑː]	/
+â	(in Sindarin) as in father, but even longer	[ɑːː]	/
+ae	(in Sindarin) the vowels described for a and e in one syllable.	[ɑɛ̯]	Similar to ai
+ai	a diphthong, similar to that in eye, but with short vowels	[ɑɪ̯]	never as in rain
+au	a and u run together in one syllable. Similar to the sound in house	[ɑʊ̯]	never as in sauce
+aw	(in Sindarin) a common way to write au at the end of the word	[ɑʊ̯]	/
+e	as in pet	[ɛ]	/
+é	the same vowel lengthened (and in Quenya more closed; as in German)	S: [ɛː], Q: [eː]	Rural Hobbit pronunciation allows the sound as in English rain
+ê	(in Sindarin) the vowel of pet especially lengthened	[ɛːː]	Rural Hobbit pronunciation allows the sound as in English rain
+ei	as in eight	[ɛɪ̯]	never as in either (in neither pronunciation)
+eu	(in Quenya) e and u run together in one syllable	[ɛʊ̯]	never as in English or German
+i	as in machine, but short	[i]	not opened as in fit
+í	as in machine	[iː]	/
+î	(in Sindarin) as in machine, but especially lengthened	[iːː]	/
+iu	(in Quenya) i and u run together in one syllable	[iʊ̯]	later by men often as in English you
+o	open as in British got	[ɔ]	/
+ó	the same vowel lengthened (and in Quenya more closed; as in German)	S: [ɔː], Q: [oː]	Rural Hobbit pronunciation allows the sound of "long" English cold
+ô	(in Sindarin) the same vowel especially lengthened	[ɔːː]	Rural Hobbit pronunciation allows the sound of "long" English cold
+oi	(in Quenya) as in English coin	[ɔɪ̯]	/
+oe	(in Sindarin) the vowels described for o and e in one syllable.	[ɔɛ̯]	Similar to oi. Cf. œ!
+œ	(in Sindarin) as in German Götter	[œ]	in published writing often oe has falsely been used, as in Nírnaeth Arnoediad!
+u	as in cool, but shorter	[u]	not opened as in book
+ú	as in cool	[uː]	/
+û	(in Sindarin) the same vowel as above, but especially lengthened	[uːː]	/
+y	(in Sindarin) as in French lune or German süß, but short	[y]	not found in English, as in German "Hütte"
+ý	(in Sindarin) as in French lune or German süß	[yː]	/
+ŷ	(in Sindarin) as in French lune or German süß, but even longer	[yːː]	not found in English
+Consonants (differing from English):
+
+The letter c is always pronounced like the letter k, even before i and e.; for instance, Celeborn is pronounced Keleborn, and Cirth is pronounced Kirth.
+The letter g is never pronounced in the soft form, as in giant. For instance, Region is pronounced unlike the English word region.
+The letter r is lightly trilled, as in Spanish.
+The digraph dh, as in Caradhras, is pronounced like the th in this.
+The digraph ch, as in Orch, is pronounced as in German ach.
+Most samples of the Elvish language are written out with the Latin alphabet, but the languages were written using Tengwar, or occasionally carved in Cirth. Tengwar can, however, be used to write many other languages.
+
+Notes
+Many of the ideas and words of elvish languages come from original research by fan and Tolkien scholars, but do not have direct canon sources.
+Many of the words are derived from known rules set down by Tolkien and can be logically inferred, but may not exist in any published or unpublished (but verified) Tolkien sources.
