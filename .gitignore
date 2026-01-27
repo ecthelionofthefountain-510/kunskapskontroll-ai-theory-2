@@ -1,0 +1,38 @@
+
+# --- Secrets / API keys ---
+.env
+.env.*
+*.env
+**/.env
+**/.env.*
+**/*.pem
+**/*.key
+**/secrets.toml
+**/secrets*.json
+**/*api_key*
+**/*apikey*
+**/*token*
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+
+# --- ML / experiment logs ---
+kt_logs/
+untitled_project/
+**/kt_logs/
+**/untitled_project/
+**/wandb/
+**/mlruns/
+**/runs/
+
+# Streamlit secrets
+.streamlit/secrets.toml
