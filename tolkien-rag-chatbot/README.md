@@ -69,7 +69,7 @@ Vanliga flaggor:
 Streamlit-appen använder exakt samma RAG-logik som terminalchatten, men med ett grafiskt gränssnitt.
 
 ```bash
-streamlit run src/web.py
+streamlit run src/streamlit.py
 ```
 
 ---
@@ -79,7 +79,7 @@ streamlit run src/web.py
 - `src/ingest.py` – bygger vektordatabasen från textfiler  
 - `src/rag.py` – RAG-logik (retrieval, prompt, svar)  
 - `src/chat.py` – terminalbaserat gränssnitt  
-- `src/web.py` – Streamlit-UI  
+- `src/streamlit.py` – Streamlit-UI  
 - `data/raw/` – källtexter  
 - `data/chroma/` – genererad vektordatabas (ej versionshanterad)
 
@@ -110,8 +110,3 @@ Boten ska då antingen svara korrekt med källor,
 eller tydligt säga att den inte hittar stöd i sina källor.
 
 ---
-
-## Notering
-
-Projektet är en proof-of-concept med fokus på att visa och förstå hela RAG-kedjan:
-data → embeddings → retrieval → svar.
