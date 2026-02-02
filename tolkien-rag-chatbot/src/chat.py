@@ -21,7 +21,7 @@ from src.rag import answer_question, get_db
 
 # --- CLI ------------------------------------------------------------
 
-# Build command interface
+# Build command line interface
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Tolkien RAG-chat (Chroma + OpenAI)")
     p.add_argument("--k", type=int, default=4, help="Number of retrieved documents")

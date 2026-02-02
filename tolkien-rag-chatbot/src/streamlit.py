@@ -229,7 +229,7 @@ def main() -> None:
         render_message(role, content, sources if show_sources else [], avatar=avatar)
 
     # Input
-    question = st.chat_input("Skriv din fråga…")
+    question = st.chat_input("What's on your mind …")
     if not question:
         return
 
@@ -261,8 +261,8 @@ def main() -> None:
                     st.write(f"- {display_source_label(s)}")
 
         if show_context:
-            with st.expander("Retrieved context (top chunks)", expanded=False):
-                render_used_docs(getattr(result, "used_docs", []))
+            st.markdown("**Retrieved context (top chunks)**")
+            render_used_docs(getattr(result, "used_docs", []))
 
     st.session_state["history"].append(
         ("assistant", result.answer, result.sources if show_sources else [])

@@ -130,7 +130,6 @@ def unique_in_order(items: list[str]) -> list[str]:
 
 
 def _distance_to_relevance(distance: float) -> float:
-    # Convert distance (0 = best) into a stable relevance score in (0, 1]
     return 1.0 / (1.0 + max(0.0, float(distance)))
 
 
@@ -208,10 +207,6 @@ def rewrite_followup(question: str, last_topic: str | None, language: str | None
 
 
 def get_db(*, persist_dir: str, collection_name: str, embedding_model: str) -> Chroma:
-    """
-    Create/load a persistent Chroma vector store.
-    Note: Uses langchain_community.vectorstores.Chroma (works with your pinned versions).
-    """
 
     os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
     os.environ.setdefault("CHROMA_TELEMETRY_DISABLED", "1")

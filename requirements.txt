@@ -1,0 +1,1 @@
+-r tolkien-rag-chatbot/requirements.txt
