@@ -34,5 +34,9 @@ untitled_project/
 **/mlruns/
 **/runs/
 
+# Reports
+rapport/
+
 # Streamlit secrets
 .streamlit/secrets.toml
+
