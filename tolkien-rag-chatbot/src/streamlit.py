@@ -12,9 +12,9 @@ import streamlit as st
 from dotenv import load_dotenv
 
 # Make imports work when running: streamlit run src/web.py
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
+APP_ROOT = Path(__file__).resolve().parents[1]  # src -> tolkien-rag-chatbot
+if str(APP_ROOT) not in sys.path:
+    sys.path.insert(0, str(APP_ROOT))
 
 try:
     from src.rag import answer_question, get_db, to_float
@@ -28,6 +28,18 @@ except ModuleNotFoundError:
 
 def env(name: str, default: str = "") -> str:
     return os.getenv(name, default)
+
+
+def is_vector_db_present(persist_dir: Path) -> bool:
+    if not persist_dir.is_dir():
+        return False
+    if (persist_dir / "chroma.sqlite3").exists():
+        return True
+    # Best-effort fallback for alternative Chroma layouts
+    try:
+        return any(persist_dir.iterdir())
+    except Exception:
+        return False
 
 
 def inject_focus_css(focus_color: str) -> None:
@@ -60,7 +72,7 @@ def inject_focus_css(focus_color: str) -> None:
 
 
 def inject_fonts() -> None:
-    font_path = PROJECT_ROOT / "assets" / "fonts" / "Aniron.ttf"
+    font_path = APP_ROOT / "assets" / "fonts" / "Aniron.ttf"
     if not font_path.exists():
         return
 
@@ -140,17 +152,21 @@ def main() -> None:
     st.set_page_config(page_title="Tolkien RAG Chat")
     inject_fonts()
 
-    st.markdown('<h1 class="tolkien-title">Tolkien RAG Chatbot</h1>', unsafe_allow_html=True)
+    st.markdown(
+        '<h1 class="tolkien-title">Tolkien RAG Chatbot</h1>', unsafe_allow_html=True
+    )
 
     # UI settings
     accent = env("UI_ACCENT_COLOR", "#22c55e")
     inject_focus_css(accent)
 
-    user_avatar = env("UI_USER_AVATAR", "👤") 
+    user_avatar = env("UI_USER_AVATAR", "👤")
     bot_avatar = env("UI_ASSISTANT_AVATAR", "🧙")
 
     # RAG config (paths + models)
-    persist_dir = Path(env("CHROMA_PERSIST_DIR", str(PROJECT_ROOT / "data" / "chroma")))
+    persist_dir = Path(env("CHROMA_PERSIST_DIR", str(APP_ROOT / "data" / "chroma")))
+    if not persist_dir.is_absolute():
+        persist_dir = APP_ROOT / persist_dir
     collection_name = env("CHROMA_COLLECTION", "tolkien_lore")
     default_chat_model = env("OPENAI_CHAT_MODEL", "gpt-4o-mini")
     default_embedding_model = env("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small")
@@ -159,7 +175,7 @@ def main() -> None:
     # Sidebar
 
     with st.sidebar:
-        st.image(str(PROJECT_ROOT / "assets" / "gandalf.gif"), use_container_width=True)
+        st.image(str(APP_ROOT / "assets" / "gandalf.gif"), use_container_width=True)
         st.divider()
 
     with st.sidebar:
@@ -183,7 +199,9 @@ def main() -> None:
 
         with st.expander("Advanced", expanded=False):
             k = st.slider("Number of chunks (k)", 1, 12, int(k), 1)
-            threshold = st.slider("Relevance threshold", 0.0, 1.0, float(threshold), 0.01)
+            threshold = st.slider(
+                "Relevance threshold", 0.0, 1.0, float(threshold), 0.01
+            )
 
         st.divider()
         show_sources = st.toggle("Show sources", value=True)
@@ -207,9 +225,60 @@ def main() -> None:
     st.session_state.setdefault("last_topic", None)
     st.session_state.setdefault("last_language", None)
 
-    # Ensure vector DB exists
-    if not persist_dir.is_dir():
-        st.error("No vector DB found. Run: `python -m src.ingest --rebuild`.")
+    # Ensure vector DB exists (deployment-friendly)
+    if not is_vector_db_present(persist_dir):
+        st.warning("No vector DB found yet.")
+        st.caption(
+            "On deploy you usually need to build the index from data/raw/. "
+            "This requires OPENAI_API_KEY (Streamlit secrets/env)."
+        )
+
+        auto_build = env("AUTO_BUILD_VECTOR_DB", "0").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+        }
+        st.session_state.setdefault("db_build_attempted", False)
+
+        col1, col2 = st.columns(2)
+        with col1:
+            build_clicked = st.button("Build vector DB", use_container_width=True)
+        with col2:
+            rebuild_clicked = st.button("Rebuild vector DB", use_container_width=True)
+
+        should_build = (
+            build_clicked
+            or rebuild_clicked
+            or (auto_build and not st.session_state["db_build_attempted"])
+        )
+        if should_build:
+            st.session_state["db_build_attempted"] = True
+            try:
+                persist_dir.mkdir(parents=True, exist_ok=True)
+                with st.spinner("Building vector DB (this may take a few minutes)…"):
+                    # Lazy import to avoid slowing down normal app startup.
+                    try:
+                        from src.ingest import build_index
+                    except ModuleNotFoundError:
+                        from ingest import build_index
+
+                    raw_dir = APP_ROOT / "data" / "raw"
+                    build_index(
+                        raw_dir=raw_dir,
+                        persist_dir=persist_dir,
+                        collection=collection_name,
+                        embedding_model=default_embedding_model,
+                        rebuild=bool(rebuild_clicked),
+                        chunk_size=900,
+                        chunk_overlap=150,
+                    )
+
+                st.success("Vector DB built. Reloading…")
+                st.rerun()
+            except Exception as e:
+                st.error(f"Failed to build vector DB: {e}")
+                st.stop()
+
         st.stop()
 
     # Cache DB
