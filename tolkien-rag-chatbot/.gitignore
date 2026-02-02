@@ -16,9 +16,6 @@ __pycache__/
 # OS
 .DS_Store
 
-# Chroma / local vector DB (generated)
-data/chroma/
-
 # Streamlit (ignore everything except theme config)
 .streamlit/*
 !.streamlit/config.toml
