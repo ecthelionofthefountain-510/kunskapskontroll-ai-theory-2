@@ -11,6 +11,9 @@ from pathlib import Path
 import streamlit as st
 from dotenv import load_dotenv
 
+# Bump this when debugging deployments to confirm which revision is running.
+APP_BUILD = "2026-02-02a"
+
 # Make imports work when running: streamlit run src/web.py
 APP_ROOT = Path(__file__).resolve().parents[1]  # src -> tolkien-rag-chatbot
 if str(APP_ROOT) not in sys.path:
@@ -176,6 +179,7 @@ def main() -> None:
 
     with st.sidebar:
         st.image(str(APP_ROOT / "assets" / "gandalf.gif"), use_container_width=True)
+        st.caption(f"Build: {APP_BUILD}")
         st.divider()
 
     with st.sidebar:
