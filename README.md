@@ -24,7 +24,7 @@ Den mer detaljerade projektbeskrivningen for RAG-chatboten finns i den separata 
 
 ---
 
-## Kort om innehall
+## Kort om innehåll
 
 Materialet är uppdelat i:
 
