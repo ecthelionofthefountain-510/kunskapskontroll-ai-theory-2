@@ -16,9 +16,9 @@ Den mer detaljerade projektbeskrivningen for RAG-chatboten finns i den separata 
 
 ## Mappstruktur (kort)
 
-- [chapter_10_assignment_8.ipynb](chapter_10_assignment_8.ipynb) - notebook for kapitel 10
-- [chapter_8_assignment_9b.py](chapter_8_assignment_9b.py) - pythonkod for kapitel 8
-- [kunskapskontroll_kod.ipynb](kunskapskontroll_kod.ipynb) - samlad kod for kursmoment
+- [chapter_10_assignment_8.ipynb](chapter_10_assignment_8.ipynb) - notebook för kapitel 10
+- [chapter_8_assignment_9b.py](chapter_8_assignment_9b.py) - pythonkod för kapitel 8
+- [kunskapskontroll_kod.ipynb](kunskapskontroll_kod.ipynb) - samlad kod för kursmoment
 - [images/](images/) - figurer och skärmbilder
 - [tolkien-rag-chatbot/](tolkien-rag-chatbot/) - separat projekt med egen README
 
