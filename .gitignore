@@ -40,3 +40,4 @@ rapport/
 # Streamlit secrets
 .streamlit/secrets.toml
 
+RAG-chatbot-Kevin.pdf/
